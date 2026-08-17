@@ -1,0 +1,31 @@
+{
+    "categorical_cols": [
+        "Product_ID",
+        "Store_ID",
+        "Category",
+        "Region"
+    ],
+    "numerical_cols": [
+        "Our_Price",
+        "Competitor_Price",
+        "Price_Difference",
+        "Price_Ratio",
+        "Price_Premium_Percent",
+        "Discount_Percent",
+        "Promotion_Flag",
+        "DayOfWeek",
+        "Month",
+        "Quarter",
+        "Is_Weekend",
+        "Season",
+        "Demand_Lag_1",
+        "Demand_Lag_7",
+        "Demand_Lag_14",
+        "Demand_Lag_28",
+        "Demand_Rolling_Mean_7",
+        "Demand_Rolling_Mean_14",
+        "Demand_Rolling_Mean_28",
+        "Demand_Rolling_Std_7"
+    ],
+    "total_transformed_features": 53
+}

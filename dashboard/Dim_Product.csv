@@ -1,0 +1,21 @@
+Product_ID,Product_Name,Category,Base_Price,Unit_Cost,Own_Price_Elasticity,Cross_Price_Elasticity,Elasticity_Category,R_Squared
+PROD_01,Wireless Noise-Canceling Headphones,Electronics,2999.0,1749.76,-3.699,1.274,Elastic (Highly Price-Sensitive),0.354
+PROD_02,Smart Fitness Watch,Electronics,4499.0,2600.76,-4.13,0.962,Elastic (Highly Price-Sensitive),0.367
+PROD_03,Portable Bluetooth Speaker,Electronics,1499.0,849.27,-3.685,1.015,Elastic (Highly Price-Sensitive),0.333
+PROD_04,Fast-Charging 20000mAh Power Bank,Electronics,999.0,550.12,-3.519,0.523,Elastic (Highly Price-Sensitive),0.285
+PROD_05,Organic Basmati Rice 5kg,Groceries,450.0,330.03,-2.277,-0.713,Elastic (Highly Price-Sensitive),0.165
+PROD_06,Extra Virgin Olive Oil 1L,Groceries,850.0,619.78,-2.687,0.877,Elastic (Highly Price-Sensitive),0.2
+PROD_07,Premium Arabica Coffee Beans 500g,Groceries,599.0,410.06,-2.605,1.311,Elastic (Highly Price-Sensitive),0.245
+PROD_08,Almond & Oat Milk 1L Pack of 3,Groceries,380.0,269.93,-2.538,-0.791,Elastic (Highly Price-Sensitive),0.196
+PROD_09,Breathable Running Shoes,Apparel,2499.0,1350.61,-3.516,-0.643,Elastic (Highly Price-Sensitive),0.287
+PROD_10,Classic Denim Jacket,Apparel,1999.0,1099.63,-3.314,-0.334,Elastic (Highly Price-Sensitive),0.274
+PROD_11,Organic Cotton Crew-Neck T-Shirt,Apparel,699.0,340.05,-3.333,-0.192,Elastic (Highly Price-Sensitive),0.283
+PROD_12,High-Waist Performance Yoga Pants,Apparel,1299.0,720.09,-3.416,1.077,Elastic (Highly Price-Sensitive),0.297
+PROD_13,Digital Touchscreen Air Fryer 4.5L,Home & Kitchen,3999.0,2300.05,-3.514,0.277,Elastic (Highly Price-Sensitive),0.298
+PROD_14,High-Speed Smoothie Blender 900W,Home & Kitchen,2199.0,1249.47,-3.382,0.238,Elastic (Highly Price-Sensitive),0.28
+PROD_15,Non-Stick Ceramic Cookware Set 3pc,Home & Kitchen,2799.0,1599.13,-3.286,1.057,Elastic (Highly Price-Sensitive),0.312
+PROD_16,Stainless Steel Electric Kettle 1.8L,Home & Kitchen,899.0,490.09,-3.491,0.649,Elastic (Highly Price-Sensitive),0.276
+PROD_17,Whey Isolate Protein Powder 1kg,Health & Care,2899.0,1949.77,-2.723,-0.047,Elastic (Highly Price-Sensitive),0.198
+PROD_18,Daily Multivitamin & Mineral 60s,Health & Care,499.0,279.95,-2.68,0.244,Elastic (Highly Price-Sensitive),0.189
+PROD_19,Vitamin C Radiance Face Serum 30ml,Health & Care,649.0,330.11,-3.034,0.943,Elastic (Highly Price-Sensitive),0.249
+PROD_20,Broad-Spectrum Sunscreen Gel SPF50,Health & Care,420.0,220.05,-2.727,-0.394,Elastic (Highly Price-Sensitive),0.196

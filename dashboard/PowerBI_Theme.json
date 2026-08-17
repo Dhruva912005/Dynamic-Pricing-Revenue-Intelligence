@@ -1,0 +1,96 @@
+{
+  "name": "DynamicPricingCorporateDarkNavy",
+  "dataColors": [
+    "#1E3A8A",
+    "#2563EB",
+    "#0D9488",
+    "#10B981",
+    "#F59E0B",
+    "#EF4444",
+    "#6366F1",
+    "#8B5CF6",
+    "#06B6D4",
+    "#64748B"
+  ],
+  "background": "#F8FAFC",
+  "foreground": "#0F172A",
+  "tableAccent": "#1E3A8A",
+  "good": "#10B981",
+  "neutral": "#F59E0B",
+  "bad": "#EF4444",
+  "maximum": "#1E3A8A",
+  "center": "#F59E0B",
+  "minimum": "#EF4444",
+  "nullColor": "#CBD5E1",
+  "textClasses": {
+    "callout": {
+      "fontSize": 24,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#0F172A"
+    },
+    "title": {
+      "fontSize": 14,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#1E293B"
+    },
+    "header": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#334155"
+    },
+    "label": {
+      "fontSize": 10,
+      "fontFace": "Segoe UI",
+      "color": "#64748B"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#E2E8F0" } },
+            "radius": 6
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#000000" } },
+            "transparency": 94,
+            "shadowSpread": 1,
+            "shadowBlur": 4,
+            "shadowDirection": "BottomRight"
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "fontSize": 22,
+            "fontFamily": "Segoe UI Semibold",
+            "color": { "solid": { "color": "#0F172A" } }
+          }
+        ],
+        "categoryLabels": [
+          {
+            "show": true,
+            "fontSize": 10,
+            "fontFamily": "Segoe UI",
+            "color": { "solid": { "color": "#64748B" } }
+          }
+        ]
+      }
+    }
+  }
+}

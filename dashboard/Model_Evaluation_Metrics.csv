@@ -1,0 +1,5 @@
+Model,MAE,RMSE,R2,WAPE_%,sMAPE_%,Approx_Forecast_Accuracy_%
+Naive Baseline (Lag 1),26.528,39.463,0.5318,25.16,24.04,74.84
+7-Day Moving Average,21.878,31.993,0.6923,20.75,20.43,79.25
+Random Forest Regressor,12.184,17.608,0.9068,11.56,11.63,88.44
+XGBoost Regressor (Tuned),11.242,16.077,0.9223,10.66,10.7,89.34
