@@ -11,8 +11,10 @@ import pandas as pd
 import numpy as np
 
 # Ensure working directory is project root
-os.chdir(r"c:\Users\LENOVO\Desktop\Project")
-sys.path.append(r"c:\Users\LENOVO\Desktop\Project")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.chdir(BASE_DIR)
+if BASE_DIR not in sys.path:
+    sys.path.append(BASE_DIR)
 
 from src.data_loader import load_data, validate_data_quality, clean_data
 from src.feature_engineering import (
@@ -94,8 +96,8 @@ save_model_artifacts(
     preprocessor=preprocessor,
     feature_names=feature_metadata,
     metrics_df=metrics_df,
-    models_dir=r"c:\Users\LENOVO\Desktop\Project\models",
-    outputs_dir=r"c:\Users\LENOVO\Desktop\Project\outputs"
+    models_dir=os.path.join(BASE_DIR, "models"),
+    outputs_dir=os.path.join(BASE_DIR, "outputs")
 )
 
 # Save test forecasts
@@ -104,18 +106,18 @@ test_results['Actual_Demand'] = y_test
 test_results['Forecast_XGBoost'] = np.round(y_xgb_test, 1)
 test_results['Forecast_Error'] = test_results['Forecast_XGBoost'] - test_results['Actual_Demand']
 test_results[['Date', 'Product_ID', 'Product_Name', 'Store_ID', 'Category', 'Our_Price', 'Actual_Demand', 'Forecast_XGBoost', 'Forecast_Error']].to_csv(
-    r"c:\Users\LENOVO\Desktop\Project\outputs\forecast_results.csv", index=False
+    os.path.join(BASE_DIR, "outputs", "forecast_results.csv"), index=False
 )
 
 print("\n--- STEP 6: ELASTICITY & DYNAMIC PRICING ENGINE ---")
 engine = DynamicPricingEngine(
-    model_path=r"c:\Users\LENOVO\Desktop\Project\models\demand_model.pkl",
-    pipeline_path=r"c:\Users\LENOVO\Desktop\Project\models\preprocessing_pipeline.pkl",
-    features_path=r"c:\Users\LENOVO\Desktop\Project\models\feature_columns.json"
+    model_path=os.path.join(BASE_DIR, "models", "demand_model.pkl"),
+    pipeline_path=os.path.join(BASE_DIR, "models", "preprocessing_pipeline.pkl"),
+    features_path=os.path.join(BASE_DIR, "models", "feature_columns.json")
 )
 
 elasticity_df = DynamicPricingEngine.estimate_price_elasticity(df)
-joblib.dump(elasticity_df, r"c:\Users\LENOVO\Desktop\Project\models\elasticity_model.pkl")
+joblib.dump(elasticity_df, os.path.join(BASE_DIR, "models", "elasticity_model.pkl"))
 print(f"Computed elasticities for {len(elasticity_df)} products.")
 
 latest_date = df['Date'].max()
@@ -140,7 +142,7 @@ for _, row in latest_df.iterrows():
     all_recs.append(r_dict)
 
 recs_df = pd.DataFrame(all_recs)
-recs_df.to_csv(r"c:\Users\LENOVO\Desktop\Project\outputs\pricing_recommendations.csv", index=False)
+recs_df.to_csv(os.path.join(BASE_DIR, "outputs", "pricing_recommendations.csv"), index=False)
 print(f"Generated and exported {len(recs_df)} pricing recommendations to outputs/pricing_recommendations.csv.")
 
 # Save unified dataset for Power BI ingestion
@@ -148,6 +150,6 @@ df_pbi = df.copy()
 # Join recommendation data onto latest state
 recs_subset = recs_df[['Product_ID', 'Store_ID', 'Recommended_Price', 'Revenue_Improvement_Percent', 'Price_Change_Percent', 'Confidence_Level', 'Recommendation_Reason']]
 df_pbi = df_pbi.merge(recs_subset, on=['Product_ID', 'Store_ID'], how='left')
-df_pbi.to_csv(r"c:\Users\LENOVO\Desktop\Project\dashboard\Dynamic_Pricing_Data_Enriched.csv", index=False)
+df_pbi.to_csv(os.path.join(BASE_DIR, "dashboard", "Dynamic_Pricing_Data_Enriched.csv"), index=False)
 print("Saved Power BI enriched dataset to dashboard/Dynamic_Pricing_Data_Enriched.csv.")
 print("\nPipeline execution complete!")
