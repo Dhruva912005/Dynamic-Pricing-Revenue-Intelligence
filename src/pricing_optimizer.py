@@ -12,15 +12,32 @@ import pandas as pd
 import statsmodels.api as sm
 
 class DynamicPricingEngine:
-    def __init__(self, model_path="models/demand_model.pkl", pipeline_path="models/preprocessing_pipeline.pkl", features_path="models/feature_columns.json"):
+    def __init__(self, model_path=None, pipeline_path=None, features_path="models/feature_columns.json"):
         """
-        Initializes the dynamic pricing engine by loading serialized ML artifacts.
+        Initializes the dynamic pricing engine by loading ML artifacts.
+        Supports native JSON models, pickle models, and robust preprocessor fallback.
         """
-        if not os.path.exists(model_path) or not os.path.exists(pipeline_path):
-            raise FileNotFoundError("Model or Preprocessing pipeline artifacts missing in models/ directory.")
+        json_path = os.path.join("models", "demand_model.json")
+        default_model_path = model_path or (json_path if os.path.exists(json_path) else "models/demand_model.pkl")
+        default_pipe_path = pipeline_path or "models/preprocessing_pipeline.pkl"
         
-        self.model = joblib.load(model_path)
-        self.preprocessor = joblib.load(pipeline_path)
+        if default_model_path.endswith(".json") and os.path.exists(default_model_path):
+            import xgboost as xgb
+            self.model = xgb.XGBRegressor()
+            self.model.load_model(default_model_path)
+        elif os.path.exists(default_model_path):
+            self.model = joblib.load(default_model_path)
+        else:
+            raise FileNotFoundError(f"Demand model missing at {default_model_path}")
+            
+        try:
+            if os.path.exists(default_pipe_path):
+                self.preprocessor = joblib.load(default_pipe_path)
+            else:
+                raise FileNotFoundError()
+        except Exception:
+            from web.data_loader import reconstruct_preprocessor
+            self.preprocessor = reconstruct_preprocessor()
         
         if os.path.exists(features_path):
             with open(features_path, "r") as f:
