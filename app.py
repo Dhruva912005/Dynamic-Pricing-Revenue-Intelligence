@@ -43,8 +43,13 @@ model, preprocessor, df_elas = load_ml_pipeline()
 
 # ── Sidebar ───────────────────────────────────────────
 with st.sidebar:
-    st.markdown("### 📈 Dynamic Pricing")
-    st.markdown("<p style='font-size:12px;color:#475569;margin:-8px 0 14px 0;'>Revenue Intelligence</p>", unsafe_allow_html=True)
+    st.markdown(
+        "<div class='sidebar-brand'>"
+        "<div class='sidebar-title'>📈 Dynamic Pricing</div>"
+        "<div class='sidebar-sub'>Revenue Intelligence Platform</div>"
+        "</div>",
+        unsafe_allow_html=True
+    )
 
     page = st.radio("nav", [
         "Overview",
@@ -56,10 +61,10 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown(
-        "<div style='font-size:11px;color:#334155;'>"
-        "Model: <b style='color:#8B5CF6;'>XGBoost</b><br>"
-        "Accuracy: <b style='color:#22C55E;'>89.3%</b><br>"
-        "Guardrails: <b style='color:#22C55E;'>Active</b></div>",
+        "<div style='font-size:12px;color:#64748B;line-height:1.6;padding:4px 2px;'>"
+        "Engine: <b style='color:#A78BFA;'>XGBoost Regressor</b><br>"
+        "Model Accuracy: <b style='color:#22C55E;'>89.3% (Holdout)</b><br>"
+        "Guardrails: <b style='color:#22C55E;'>Enforced</b></div>",
         unsafe_allow_html=True
     )
 
